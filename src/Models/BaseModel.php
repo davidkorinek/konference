@@ -1,0 +1,13 @@
+<?php
+namespace App\Models;
+
+use Davca\Konference\Core\Database;
+use PDO;
+
+class BaseModel {
+    protected PDO $db;
+
+    public function __construct(){
+        $this->db = Database::getInstance();
+    }
+}

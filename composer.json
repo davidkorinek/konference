@@ -1,0 +1,19 @@
+{
+    "name": "davca/konference",
+    "description": "konferencni system",
+    "autoload": {
+        "psr-4": {
+            "Davca\\Konference\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David Korinek",
+            "email": "dkorinek@students.zcu.cz"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ezyang/htmlpurifier": "^4.19"
+    }
+}

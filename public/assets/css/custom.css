@@ -1,0 +1,176 @@
+/* velké pozadí */
+/*.page-bg {
+    position: fixed;
+    inset: 0;
+    background-image: url('../img/background-large.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    z-index: -1;
+}*/
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.title-accent {
+    color: #078034;
+    font-weight: bold;
+}
+
+.navbar-color {
+    background-color: rgba(113, 189, 76, 0.89);
+}
+
+.navbar-color .nav-link {
+    color: #000;
+}
+
+.navbar-color .nav-link.active {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.info-card.green {
+    background: #28a745;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .page-bg { display: none; }
+    .site-title { font-size: 1.4rem; }
+}
+
+.file-box {
+    background: #fff;
+    border-left: 5px solid #2b8a4e;
+}
+
+.file-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.rating {
+    color: #f5b100;
+    font-size: 1rem;
+}
+
+.file-status {
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.status-uploaded { background: #0275d8; }
+.status-waiting_for_check { background: #f0ad4e; }
+.status-in_review { background: #5bc0de; }
+.status-approved { background: #5cb85c; }
+.status-rejected { background: #d9534f; }
+
+.file-status-bar {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status-info {
+    background-color: #d8eefc;
+    color: #0b4f71;
+}
+
+.status-success {
+    background-color: #d1f3d1;
+    color: #1f6b1f;
+}
+
+.status-danger {
+    background-color: #f7d3d3;
+    color: #8a1f1f;
+}
+
+.star {
+    color: #f8b400;
+    font-size: 18px;
+}
+
+ .rating-stars {
+     font-size: 28px;
+     color: #f5b100;
+ }
+
+.rating-stars i {
+    margin-right: 2px;
+}
+
+.rating-input {
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    height: 32px;
+    top: 0;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   ⭐ HODNOCENÍ – hvězdičky + slider pro půlbody
+--------------------------------------------------------- */
+
+.star-rating-container {
+    margin-bottom: 10px;
+}
+
+.star-rating-container .rating-input {
+    width: 160px;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 10; /* slider musí být kliknutelný, ne hvězdy */
+}
+
+.star-rating-container .rating-stars {
+    font-size: 22px;
+    color: #f5b100;
+    margin-top: 4px;
+    pointer-events: none; /* hvězdy neblokují slider */
+}
+
+/* ---------------------------------------------------------
+   ⭐ OPRAVA ZAROVNÁNÍ HVĚZDIČEK + SLIDERU
+--------------------------------------------------------- */
+
+/* Kontejner vlastností */
+.star-rating-container {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+/* Slider musí být viditelný (ale ultra tenký) a kliknutelný */
+.star-rating-container .rating-input {
+    width: 125px;
+    height: 18px;              /* sníží výšku → nebude posouvat hvězdy */
+    margin: 0;
+    padding: 0;
+    opacity: 0;                /* slider neviditelný */
+    cursor: pointer;
+    position: absolute;
+    top: 0;                    /* zarovná se přesně na hvězdy */
+    left: 0;
+    z-index: 10;               /* slider je klikací */
+}
+
+/* Hvězdičky */
+.star-rating-container .rating-stars {
+    font-size: 22px;
+    color: #f5b100;
+    pointer-events: none;      /* hvězdy neblokují slider */
+    line-height: 18px;         /* výška přesně jako slider */
+}
+
+
