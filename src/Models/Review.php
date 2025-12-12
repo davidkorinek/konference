@@ -4,6 +4,15 @@ namespace Davca\Konference\Models;
 
 use Davca\Konference\Core\Database;
 
+/*
+ * zpracovava recenze clanku
+ *
+ * Model pracuje s tabulkami:
+ *   ReviewAssignments – vztah recenzent a clanek
+ *   Reviews           – samotne recenze
+ *   ReviewDecisions   – slovnik decision_name a ID
+ *   Users             – kvuli zobrazeni recenzenta v admin casti
+ */
 class Review {
     private $db;
     public function __construct(){

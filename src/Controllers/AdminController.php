@@ -45,6 +45,15 @@ class AdminController {
         require __DIR__ . '/../View/admin/users.php';
     }
 
+    public function articles(){
+        $this->requireAdmin();
+
+        $fileModel = new File();
+        $files = $fileModel->getAllArticles();
+
+        require __DIR__ . '/../View/admin/articles.php';
+    }
+
     //prirazovani recenzentu
 
     public function assignForm(){
@@ -225,15 +234,5 @@ class AdminController {
         $_SESSION['admin_success'] = "Článek byl vrácen do recenzního řízení.";
         header("Location: /konference/public/admin/files");
         exit;
-    }
-
-    // prehled vsech clanku
-    public function articles(){
-        $this->requireAdmin();
-
-        $fileModel = new File();
-        $files = $fileModel->getAllArticles();
-
-        require __DIR__ . '/../View/admin/articles.php';
     }
 }

@@ -1,7 +1,17 @@
+# Aktivuje mod_rewrite – modul, který umožňuje přepisování URL
 RewriteEngine On
+
+# Základní cesta aplikace (musí odpovídat serverové struktuře)
+# Zde je projekt umístěn ve složce: /konference/public/
 RewriteBase /konference/public/
 
+# Pokud požadovaná cesta neexistuje jako fyzický soubor...
 RewriteCond %{REQUEST_FILENAME} !-f
+
+# ...a také neexistuje jako fyzická složka...
 RewriteCond %{REQUEST_FILENAME} !-d
 
+# ...pak přepiš URL tak, aby vše šlo do index.php (front controller).
+# QSA = zachovej parametry (?id=1)
+# L = zastav další pravidla
 RewriteRule ^(.*)$ index.php [L,QSA]

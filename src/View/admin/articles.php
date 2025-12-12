@@ -3,7 +3,7 @@ require __DIR__ . '/../partials/head.php';
 require __DIR__ . '/../partials/header.php';
 require __DIR__ . '/../partials/nav.php';
 
-/* funkce pro hvězdičky */
+/* funkce pro vizualni vykresleni hvezdicek */
 function renderStars($value)
 {
     if ($value === null) return "<span class='text-muted'>Bez hodnocení</span>";
@@ -80,7 +80,7 @@ function renderStars($value)
                     <i class="bi bi-pencil"></i> Upravit
                 </a>
 
-                <!-- vrácení do recenzí -->
+                <!-- vratit do recenzniho rizeni -->
                 <form method="post" action="<?= $base ?>/admin/file/reset" class="d-inline ms-1">
                     <input type="hidden" name="file_id" value="<?= $f['ID_file'] ?>">
                     <button class="btn btn-warning btn-sm">

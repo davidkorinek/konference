@@ -3,6 +3,18 @@ namespace Davca\Konference\Models;
 
 use Davca\Konference\Core\Database;
 
+/*
+ * model reprezentujici odborny clanek v systemu
+ *
+ * zajistena sprava clanku (CRUD), prace se statusy, nacitani recenzui
+ *
+ * tabulky se kterymi pracuje
+ *   Files               – hlavni tabulka clanku
+ *   FileStatuses        – status workflow (uploaded, in_review, approved…)
+ *   ReviewAssignments   – prirazeni recenzentu ke clanku
+ *   Reviews             – samotne recenze
+ *   Users               – kvuli nacitani recenzentu
+ */
 class File {
     private $db;
 

@@ -18,5 +18,4 @@ class HomeController {
     {
         require __DIR__ . '/../View/program.php';
     }
-
 }

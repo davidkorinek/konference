@@ -43,6 +43,8 @@ class AuthorController {
     public function create(){
         $this->requireAuthor();
 
+        $config = require __DIR__ . '/../../config/config.php';
+
         $authorId = $_SESSION['user']['id'];
 
         $errors   = [];
@@ -64,7 +66,7 @@ class AuthorController {
             if ($type !== "application/pdf") {
                 $errors[] = "Soubor musí být PDF.";
             }
-            if ($_FILES['pdf']['size'] > 5 * 1024 * 1024) {
+            if ($_FILES['pdf']['size'] > $config['upload_max_size']) {
                 $errors[] = "PDF může mít max 5 MB.";
             }
         }
@@ -77,7 +79,7 @@ class AuthorController {
 
         // bezpecne ulozeni
         $filename = uniqid("file_", true) . ".pdf";
-        $path = __DIR__ . "/../../public/assets/uploads/" . $filename;
+        $path = $config['upload_dir'] . $filename;
         move_uploaded_file($tmp, $path);
 
         // ulozit do databaze

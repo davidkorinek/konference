@@ -1,5 +1,5 @@
 <?php
-
+// funce e() escapuje HTML - brani proti XSS utokum
 if (!function_exists('e')) {
     function e($value): string
     {

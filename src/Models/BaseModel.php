@@ -4,6 +4,7 @@ namespace App\Models;
 use Davca\Konference\Core\Database;
 use PDO;
 
+// spolecny rodic pro vsechny modely - centralizace pristupu k databazi
 class BaseModel {
     protected PDO $db;
 

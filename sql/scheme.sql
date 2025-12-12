@@ -7,9 +7,6 @@ CREATE DATABASE IF NOT EXISTS `konference`
 
 USE `konference`;
 
-----------------------------------------------------------------
--- TABLE: files
-----------------------------------------------------------------
 CREATE TABLE `files` (
                          `ID_file` int(11) NOT NULL AUTO_INCREMENT,
                          `authors` varchar(255) NOT NULL,
@@ -27,9 +24,6 @@ CREATE TABLE `files` (
                          KEY `idx_files_status` (`ID_status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: filestatuses
-----------------------------------------------------------------
 CREATE TABLE `filestatuses` (
                                 `ID_status` int(11) NOT NULL AUTO_INCREMENT,
                                 `status_name` varchar(50) NOT NULL,
@@ -37,9 +31,6 @@ CREATE TABLE `filestatuses` (
                                 UNIQUE KEY `status_name` (`status_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: filestatushistory
-----------------------------------------------------------------
 CREATE TABLE `filestatushistory` (
                                      `ID_history` int(11) NOT NULL AUTO_INCREMENT,
                                      `ID_file` int(11) NOT NULL,
@@ -52,9 +43,6 @@ CREATE TABLE `filestatushistory` (
                                      KEY `idx_fsh_user` (`changed_by`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: reviewassignments
-----------------------------------------------------------------
 CREATE TABLE `reviewassignments` (
                                      `ID_assignment` int(11) NOT NULL AUTO_INCREMENT,
                                      `ID_file` int(11) NOT NULL,
@@ -65,9 +53,6 @@ CREATE TABLE `reviewassignments` (
                                      KEY `idx_ra_reviewer` (`ID_reviewer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: reviewdecisions
-----------------------------------------------------------------
 CREATE TABLE `reviewdecisions` (
                                    `ID_decision` int(11) NOT NULL AUTO_INCREMENT,
                                    `decision_name` varchar(50) NOT NULL,
@@ -75,9 +60,6 @@ CREATE TABLE `reviewdecisions` (
                                    UNIQUE KEY `decision_name` (`decision_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: reviews
-----------------------------------------------------------------
 CREATE TABLE `reviews` (
                            `ID_review` int(11) NOT NULL AUTO_INCREMENT,
                            `ID_assignment` int(11) NOT NULL,
@@ -92,9 +74,6 @@ CREATE TABLE `reviews` (
                            KEY `fk_reviews_decision` (`ID_decision`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: roles
-----------------------------------------------------------------
 CREATE TABLE `roles` (
                          `ID_roles` int(11) NOT NULL AUTO_INCREMENT,
                          `role_name` varchar(50) NOT NULL,
@@ -102,9 +81,6 @@ CREATE TABLE `roles` (
                          UNIQUE KEY `role_name` (`role_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: userroles
-----------------------------------------------------------------
 CREATE TABLE `userroles` (
                              `ID_user` int(11) NOT NULL,
                              `ID_role` int(11) NOT NULL,
@@ -112,9 +88,6 @@ CREATE TABLE `userroles` (
                              KEY `fk_userroles_role` (`ID_role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-----------------------------------------------------------------
--- TABLE: users
-----------------------------------------------------------------
 CREATE TABLE `users` (
                          `ID_user` int(11) NOT NULL AUTO_INCREMENT,
                          `username` varchar(100) NOT NULL,
@@ -126,10 +99,6 @@ CREATE TABLE `users` (
                          UNIQUE KEY `username` (`username`),
                          UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
-
-----------------------------------------------------------------
--- FOREIGN KEYS
-----------------------------------------------------------------
 
 ALTER TABLE `files`
     ADD CONSTRAINT `fk_files_status` FOREIGN KEY (`ID_status`) REFERENCES `filestatuses` (`ID_status`),

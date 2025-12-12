@@ -1,15 +1,17 @@
 <?php
-/* debug */
+/* debug
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+*/
 
-
+/* autoloader - nacitani trid podle PSR-4 (composer) */
 require_once __DIR__ . '/../vendor/autoload.php';
+/* bezpecnostni helper - funkce htmlescape (ochrana proti XSS)*/
 require_once __DIR__ . '/../src/Helpers/security.php';
 
 use Davca\Konference\Core\Router;
 
-/* inicializace */
+/* inicializace routeru (mapuje URL cesty na controllery) */
 $router = new Router();
 
 /* homepage */
@@ -18,7 +20,7 @@ $router->get('/', 'HomeController@index');
 /* program */
 $router->get('/program', 'HomeController@program');
 
-/* registrace a login */
+/* registrace a login/logout */
 $router->get('/register', 'AuthController@showRegister');
 $router->post('/register', 'AuthController@register');
 
@@ -43,7 +45,7 @@ $router->get('/reviewer/tasks', 'ReviewerController@tasks');
 $router->get('/reviewer/review', 'ReviewerController@reviewForm');
 $router->post('/reviewer/review', 'ReviewerController@submitReview');
 
-/* admin */
+/* admin (superadmin) */
 $router->get('/admin/users', 'AdminController@users');
 $router->post('/admin/users/update-all', 'AdminController@updateAllUsers');
 
