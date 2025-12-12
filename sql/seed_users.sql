@@ -1,11 +1,3 @@
--- ================================================
---  SEED: ROLE + UŽIVATELÉ + PŘIŘAZENÍ ROLÍ
--- ================================================
-
--- 💡 Doporučené heslo pro všechny: heslo
--- Bcrypt hash: $2y$10$4G3TaltbVuJi43CN3Na1w.WcEzqyiixMSjBMOGy6247wdaQN2QulK
-
-
 INSERT INTO Roles (role_name)
 VALUES
     ('superadmin'),
