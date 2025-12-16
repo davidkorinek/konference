@@ -94,9 +94,9 @@ BEZPEČNOST
 
 AUTOR
 
-Jméno: David Kořínek
-Email: dkorinek@students.zcu.cz
-Předmět: WEB
+Jméno: David Kořínek |
+Email: dkorinek@students.zcu.cz |
+Předmět: WEB |
 Rok: 2025
 
 
