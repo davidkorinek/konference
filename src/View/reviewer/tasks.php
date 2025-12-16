@@ -141,5 +141,3 @@ function renderStars($value)
 
 <script src="<?= $base ?>/assets/js/bootstrap.bundle.min.js"></script>
 <?php require __DIR__ . '/../partials/footer.php'; ?>
-</body>
-</html>

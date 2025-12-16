@@ -28,6 +28,10 @@ function renderStars($value)
 
     <h2 class="mb-4">Seznam všech článků</h2>
 
+    <?php if (empty($files)): ?>
+        <div class="alert alert-info">Nenalezeny žádné články.</div>
+    <?php endif; ?>
+
     <?php foreach ($files as $f): ?>
 
         <?php
@@ -108,5 +112,3 @@ function renderStars($value)
 
 <script src="<?= $base ?>/assets/js/bootstrap.bundle.min.js"></script>
 <?php require __DIR__ . '/../partials/footer.php'; ?>
-</body>
-</html>

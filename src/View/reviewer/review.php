@@ -82,7 +82,7 @@ require __DIR__ . '/../partials/nav.php';
                         </select>
 
                         <textarea id="commentEditor" name="comment" rows="10" class="form-control">
-<?= $existingReview['comment'] ?? '' ?>
+                            <?= $existingReview['comment'] ?? '' ?>
                         </textarea>
                     </div>
                 </div>
@@ -97,8 +97,6 @@ require __DIR__ . '/../partials/nav.php';
     </div>
 </div>
 
-<script src="https://cdn.ckeditor.com/4.25.1/standard/ckeditor.js"></script>
-<script> CKEDITOR.replace('commentEditor'); </script>
 
 <script>
     function renderStars(element, value) {

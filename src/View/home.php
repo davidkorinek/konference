@@ -104,8 +104,6 @@ require __DIR__ . '/partials/nav.php';
 
 </main>
 
-<?php require __DIR__ . '/partials/footer.php';?>
-
 <script src="<?= $base ?>/assets/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+<?php require __DIR__ . '/partials/footer.php';?>

@@ -6,6 +6,25 @@ VALUES
     ('author')
     ON DUPLICATE KEY UPDATE role_name = role_name;
 
+INSERT INTO filestatuses (ID_status, status_name)
+VALUES
+    (1, 'uploaded'),
+    (2, 'waiting_for_check'),
+    (3, 'in_review'),
+    (4, 'approved'),
+    (5, 'rejected'),
+    (6, 'published')
+    ON DUPLICATE KEY UPDATE status_name = status_name;
+
+INSERT INTO reviewdecisions (ID_decision, decision_name)
+VALUES
+    (1, 'approve'),
+    (2, 'reject'),
+    (3, 'needs_changes')
+    ON DUPLICATE KEY UPDATE decision_name = decision_name;
+
+
+
 SET @superadmin := (SELECT ID_roles FROM Roles WHERE role_name='superadmin');
 SET @admin      := (SELECT ID_roles FROM Roles WHERE role_name='admin');
 SET @reviewer   := (SELECT ID_roles FROM Roles WHERE role_name='reviewer');

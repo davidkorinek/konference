@@ -87,7 +87,6 @@ require __DIR__ . '/partials/nav.php';
 
     </div>
 
-    <!-- PDF ke stažení -->
     <div class="text-center mt-5">
         <a href="<?= $base ?>/assets/docs/program.pdf" class="btn btn-outline-primary">
             <i class="bi bi-file-earmark-pdf"></i> Stáhnout kompletní program (PDF)
@@ -95,5 +94,7 @@ require __DIR__ . '/partials/nav.php';
     </div>
 
 </div>
+
+<script src="<?= $base ?>/assets/js/bootstrap.bundle.min.js"></script>
 
 <?php require __DIR__ . '/partials/footer.php'; ?>

@@ -31,18 +31,6 @@ CREATE TABLE `filestatuses` (
                                 UNIQUE KEY `status_name` (`status_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
-CREATE TABLE `filestatushistory` (
-                                     `ID_history` int(11) NOT NULL AUTO_INCREMENT,
-                                     `ID_file` int(11) NOT NULL,
-                                     `ID_status` int(11) NOT NULL,
-                                     `changed_by` int(11) NOT NULL,
-                                     `changed_at` datetime DEFAULT current_timestamp(),
-                                     PRIMARY KEY (`ID_history`),
-                                     KEY `fk_fsh_status` (`ID_status`),
-                                     KEY `idx_fsh_file` (`ID_file`),
-                                     KEY `idx_fsh_user` (`changed_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
-
 CREATE TABLE `reviewassignments` (
                                      `ID_assignment` int(11) NOT NULL AUTO_INCREMENT,
                                      `ID_file` int(11) NOT NULL,
@@ -104,10 +92,6 @@ ALTER TABLE `files`
     ADD CONSTRAINT `fk_files_status` FOREIGN KEY (`ID_status`) REFERENCES `filestatuses` (`ID_status`),
   ADD CONSTRAINT `fk_files_user` FOREIGN KEY (`uploaded_by`) REFERENCES `users` (`ID_user`);
 
-ALTER TABLE `filestatushistory`
-    ADD CONSTRAINT `fk_fsh_file` FOREIGN KEY (`ID_file`) REFERENCES `files` (`ID_file`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_fsh_status` FOREIGN KEY (`ID_status`) REFERENCES `filestatuses` (`ID_status`),
-  ADD CONSTRAINT `fk_fsh_user` FOREIGN KEY (`changed_by`) REFERENCES `users` (`ID_user`);
 
 ALTER TABLE `reviewassignments`
     ADD CONSTRAINT `fk_ra_file` FOREIGN KEY (`ID_file`) REFERENCES `files` (`ID_file`) ON DELETE CASCADE,
