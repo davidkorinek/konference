@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace Davca\Konference\Models;
 
 use Davca\Konference\Core\Database;
 use PDO;
