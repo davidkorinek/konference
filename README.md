@@ -36,10 +36,14 @@ ADRESÁŘOVÁ STRUKTURA
 
 src/
 controllers/ – aplikační logika jednotlivých částí
+
+src/
 models/ – databázové modely
 
+src/
 view/ – zobrazovací šablony
 
+src/
 partials/ – společné části stránek (hlavička, menu, patička)
 
 config/
@@ -47,15 +51,20 @@ config.php – konfigurace databáze a uploadu
 
 public/
 index.php – vstupní bod aplikace
+
+public/
 assets/
 css/ – styly
+
+public/
+assets/
 js/ – skripty
 uploads/ – nahrané PDF soubory
 
 sql/
-databázový skript
+databázové skripty
 
-README.txt
+README.md
 
 
 UŽIVATELSKÉ ROLE
@@ -69,11 +78,11 @@ UŽIVATELSKÉ ROLE
 
 INSTALACE
 
-1. Naklonuj repozitář z GitHubu.
-2. Importuj databázi ze složky sql/.
-3. Uprav přístupové údaje v souboru config/config.php.
-4. Nastav práva zápisu pro adresář public/assets/uploads/.
-5. Spusť aplikaci na lokálním serveru (XAMPP, Laragon apod.).
+1. Instaluj XAMPP a naklonuj repozitář, který umísti do C:\xampp\htdocs
+2. Po spuštění Apache a MySQL v XAMPP, otevřít localhost/phpmyadmin.
+3. Přes SQL konzoli spustit napřed scheme.sql a poté seed_data.sql.
+4. Uprav přístupové údaje v souboru config/config.php.
+5. Otevři localhost/konference/public -> HOTOVO
 
 
 BEZPEČNOST
